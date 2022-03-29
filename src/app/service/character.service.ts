@@ -15,7 +15,7 @@ export class CharacterService {
     private http: HttpClient
   ) { }
   getCharacter(): Observable<Character[]> {
-    return this.http.get<Character[]>(`api/characters/?api_key=${this.apiKey}&format=json`)
+    return this.http.get<Character[]>(`api/characters/?api_key=${this.apiKey}&format=json&field_list=name&limit=10`)
     //return this.http.get<Character[]>(this.apiUrl2);
 
   }

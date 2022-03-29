@@ -1,7 +1,5 @@
-<p>home works!</p>
-
 <ul>
-    <li *ngFor="let character of characters" >
-        <p>{{character.aliases}}</p>
+    <li *ngFor="let character of character | keyvalue" >
+        <p>{{character.value | json}}</p>
     </li>
 </ul>
