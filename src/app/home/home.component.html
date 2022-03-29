@@ -1,5 +1,10 @@
 <ul>
-    <li *ngFor="let character of character | keyvalue" >
-        <p>{{character.value | json}}</p>
+    <li *ngFor="let character of character" >
+        <img src="{{character.image.icon_url}}"/>
+        <p>{{character.name}}</p>
+        <p>{{character.real_name}}</p>
+        <p>{{character.date_last_updated}}</p>
+        <p>{{character.deck}}</p>
+        <p>{{character.id}}</p>
     </li>
 </ul>
