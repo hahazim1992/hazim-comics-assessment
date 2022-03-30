@@ -5,6 +5,10 @@ export interface Character {
     deck: string;
     image: {
         icon_url: string;
+        medium_url: string;
+        tiny_url: string;
+        thumb_url: string;
+        super_url: string;
     };
     id: number;
     /* name
