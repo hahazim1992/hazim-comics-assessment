@@ -11,18 +11,16 @@ export interface Character {
         super_url: string;
     };
     id: number;
-    /* name
-real name 
-the brief summary of the character
-
-Image
-Name
-Real Name
-Gender
-Birth
-Origin
-Powers
-Friends
-Enemies
-ETC */
+    birth: any;
+    origin: {
+        name: any;
+    };
+    description: any;
+    publisher: {
+        name: any;
+    };
+    first_appeared_in_issue: {
+        name: any;
+        issue_number: any;
+    }
 }
