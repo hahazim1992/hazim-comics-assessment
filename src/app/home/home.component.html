@@ -1,10 +1,34 @@
-<ul>
-    <li *ngFor="let character of character" >
-        <img src="{{character.image.tiny_url}}"/>
-        <p>{{character.name}}</p>
-        <p>{{character.real_name}}</p>
-        <p>{{character.date_last_updated}}</p>
-        <p>{{character.deck}}</p>
-        <p>{{character.id}}</p>
-    </li>
-</ul>
+<div class="card">
+    <p-dataView #dv [value]="character" [paginator]="true" paginatorPosition="both" [rows]="9" filterBy="name" layout="grid">
+        <ng-template pTemplate="header">
+            <div class="flex flex-column md:flex-row md:justify-content-between">
+                <span class="p-input-icon-left mb-2 md:mb-0">
+                    <i class="pi pi-search"></i>
+                    <input type="search" pInputText placeholder="Search by Name">
+                </span>
+            </div>
+        </ng-template>
+        <ng-template let-character pTemplate="gridItem">
+            <div class="col-12 md:col-4">
+                <div class="product-grid-item card">
+                    <div class="card1">
+                        <div class="product-grid-item-top">
+                            <i class="pi pi-clock product-category-icon"></i>
+                            <span class="product-category">{{character.date_last_updated}}</span>
+                        </div>
+                        <div class="product-grid-item-content">
+                            <img [src]="character.image.super_url" [alt]="character.name"/>
+                            <div class="product-name mb-2">{{character.name ?? "Missing Character Name"}}</div>
+                            <div class="product-real-name font-italic mb-3">{{character.real_name ?? "Missing Character Real Name"}}</div>
+                            <div class="product-description">{{character.deck ?? "Missing character desciption"}}</div>
+                            <div>
+                                <button pButton type="button" class="p-button-info">Read More</button>
+                            </div>
+                        </div>
+                        
+                    </div>                    
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>

@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import { SharedModule } from 'primeng/api';
-import {HttpClientModule} from '@angular/common/http'
-
+import {HttpClientModule} from '@angular/common/http';
 import {MenubarModule} from 'primeng/menubar';
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -27,7 +28,9 @@ import { LayoutComponent } from './layout/layout.component';
     MenubarModule,
     InputTextModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    DataViewModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
