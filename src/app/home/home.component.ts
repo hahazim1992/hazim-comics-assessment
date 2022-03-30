@@ -1,6 +1,7 @@
 import { Character } from './../model/character';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { CharacterService } from '../service/character.service';
+import { Router } from '@angular/router';
 //import {LazyLoadEvent} from 'primeng/api';
 
 @Component({
@@ -12,9 +13,12 @@ export class HomeComponent implements OnInit {
   character: any = [];
   //virtualCharacter: any = [];
   loading: boolean = true;
+  selectedName: any;
+  suggestionName: any = [];
 
   constructor(
-    private characterService: CharacterService
+    private characterService: CharacterService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,9 +28,26 @@ export class HomeComponent implements OnInit {
   getCharacter(){
     this.characterService.getCharacter().subscribe((data: Character[]) => {
       this.character = data['results' as any ];
-      console.log(this.character, typeof this.character);
       this.loading = false;
     })
+  }
+
+  search(event: any){
+    let filtered: any[] = [];
+    let query = event.query;
+
+    for (let i = 0; i < this.character.length; i++) {
+      let char = this.character[i];
+      if(char.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        filtered.push(char);
+      }
+    }
+    this.suggestionName = filtered;
+    console.log(query, this.selectedName);
+  }
+
+  viewDetails(id: any){
+    this.router.navigate(['/details'])
   }
 
   /* loadData(event: any){
@@ -40,7 +61,4 @@ export class HomeComponent implements OnInit {
     /* applyFilterGlobal($event: any, stringval: any) {
       this.dv.filterGlobal(($event.target as HTMLInputElement).value, stringval); 
   }*/
-
-
-
 }

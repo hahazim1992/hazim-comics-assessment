@@ -8,18 +8,24 @@ import {HttpClientModule} from '@angular/common/http';
 import {MenubarModule} from 'primeng/menubar';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { FormsModule } from '@angular/forms';
+import {FieldsetModule} from 'primeng/fieldset';
+import {ImageModule} from 'primeng/image';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutComponent } from './layout/layout.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LayoutComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,11 @@ import { LayoutComponent } from './layout/layout.component';
     SharedModule,
     HttpClientModule,
     DataViewModule,
-    ButtonModule
+    ButtonModule,
+    AutoCompleteModule,
+    FormsModule,
+    FieldsetModule,
+    ImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
