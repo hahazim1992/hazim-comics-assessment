@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
   character: any = [];
   //virtualCharacter: any = [];
   loading: boolean = true;
+  selectedName: any;
+  suggestionName: any = [];
+
+  a: any[] = [];
 
   constructor(
     private characterService: CharacterService
@@ -24,9 +28,22 @@ export class HomeComponent implements OnInit {
   getCharacter(){
     this.characterService.getCharacter().subscribe((data: Character[]) => {
       this.character = data['results' as any ];
-      console.log(this.character, typeof this.character);
       this.loading = false;
     })
+  }
+
+  search(event: any){
+    let filtered: any[] = [];
+    let query = event.query;
+
+    for (let i = 0; i < this.character.length; i++) {
+      let char = this.character[i];
+      if(char.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        filtered.push(char);
+      }
+    }
+    this.suggestionName = filtered;
+    console.log(query);
   }
 
   /* loadData(event: any){

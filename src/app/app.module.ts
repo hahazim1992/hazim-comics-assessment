@@ -8,6 +8,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {MenubarModule} from 'primeng/menubar';
 import {DataViewModule} from 'primeng/dataview';
 import {ButtonModule} from 'primeng/button';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -30,7 +32,9 @@ import { LayoutComponent } from './layout/layout.component';
     SharedModule,
     HttpClientModule,
     DataViewModule,
-    ButtonModule
+    ButtonModule,
+    AutoCompleteModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
