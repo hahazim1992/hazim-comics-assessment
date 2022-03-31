@@ -3,8 +3,10 @@
         <ng-template pTemplate="header">
             <div class="flex flex-column md:flex-row md:justify-content-between">
                 <span class="p-input-icon-left mb-2 md:mb-0">
-                    <i class="pi pi-search"></i>
-                    <p-autoComplete [(ngModel)]="selectedName" [showEmptyMessage]="true" [suggestions]="suggestionName" (completeMethod)="search($event)" (onKeyUp)="dv.filter($any($event.target).value)" field="name" (input)="dv.filter($any($event.target).value)"></p-autoComplete>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+                        <p-autoComplete [(ngModel)]="selectedName" [showEmptyMessage]="true" [suggestions]="suggestionName" (completeMethod)="search($event)" (onKeyUp)="dv.filter($any($event.target).value)" field="name" (input)="dv.filter($any($event.target).value)" placeholder="Search character" style="max-width: 30vw;"></p-autoComplete>
+                    </div>
                 </span>
             </div>
         </ng-template>
@@ -13,14 +15,14 @@
                 <div class="product-grid-item card">
                     <div class="card1">
                         <div class="product-grid-item-top">
-                            <i class="pi pi-clock product-category-icon"></i>
-                            <span class="product-category">{{character.date_last_updated}}</span>
+                            <i class="pi pi-clock product-category-icon text-xs"></i>
+                            <span class="product-category text-xs">{{character.date_last_updated}}</span>
                         </div>
                         <div class="product-grid-item-content">
                             <img [src]="character.image.super_url" [alt]="character.name"/>
-                            <div class="product-name mb-2">{{character.name ?? "Missing Character Name"}}</div>
-                            <div class="product-real-name font-italic mb-3">{{character.real_name ?? "Missing Character Real Name"}}</div>
-                            <div class="product-description">{{character.deck ?? "Missing character desciption"}}</div>
+                            <div class="product-name mb-2 text-teal-800">{{character.name ?? "Missing Character Name"}}</div>
+                            <div class="product-real-name font-italic mb-3 font-bold">{{character.real_name ?? "Missing Character Real Name"}}</div>
+                            <div class="product-description font-light">{{character.deck ?? "Missing character desciption"}}</div>
                             <div>
                                 <button pButton type="button" class="p-button-info" [routerLink]="['/details', character.id]">Read More</button>
                             </div>
