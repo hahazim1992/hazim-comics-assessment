@@ -82,7 +82,8 @@
          },
           "configurations": {
             "production": {
-              "browserTarget": "hazim-comics-assessment:build:production"
+              "browserTarget": "hazim-comics-assessment:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
               "browserTarget": "hazim-comics-assessment:build:development"
