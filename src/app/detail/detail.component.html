@@ -19,7 +19,18 @@
             </div>
             <div class="flex">
                 <p class="col-3 font-bold">Gender</p> 
-                <p class="col-8 font-light">{{character[0]?.gender ?? "Missing"}}</p>
+                <div class="" *ngIf="character[0]?.gender === 1">
+                    <p class="col-8 font-light">Male</p>
+                </div>
+                <div class="" *ngIf="character[0]?.gender === 2">
+                    <p class="col-8 font-light">Female</p>
+                </div>
+                <div class="" *ngIf="character[0]?.gender === 0">
+                    <p class="col-8 font-light">Other</p>
+                </div>
+                <div class="" *ngIf="character[0]?.gender == null">
+                    <p class="col-8 font-light">Missing</p>
+                </div>
             </div>
             <div class="flex">
                 <p class="col-3 font-bold">Birth</p> 
@@ -44,7 +55,11 @@
             </div>
             <div class="flex">
                 <p class="col-4 font-bold">First appearance in</p> 
-                <p class="col-8 font-light">{{character[0]?.first_appeared_in_issue?.name}}, #{{character[0]?.first_appeared_in_issue?.issue_number ?? "Missing"}}</p>
+                <p class="col-8 font-light">{{character[0]?.first_appeared_in_issue?.name ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-4 font-bold">Issue number</p> 
+                <p class="col-8 font-light">{{character[0]?.first_appeared_in_issue?.issue_number ?? "Missing"}}</p>
             </div>
         </p-fieldset>
     </div>
