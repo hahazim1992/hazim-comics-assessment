@@ -1,18 +1,57 @@
-<p-image [src]="character[0].image.super_url" [alt]="character[0].name" width="250" height="250" [preview]="true"></p-image>
+<div class="flex flex-wrap">
+    <div class="flex col-12 align-items-center justify-content-center mt-2 mb-2">
+        <p-card header="{{character[0]?.name ?? 'Missing character name'}}" subheader="{{character[0]?.real_name ?? 'Missing character real name'}}" style="max-width: '360px'" styleClass="p-card-shadow text-center mt-2">
+        <ng-template pTemplate="header">
+            <img [src]="character[0]?.image?.super_url" [alt]="character[0]?.name">
+        </ng-template>
+        </p-card>
+    </div>
 
-<p-fieldset legend="Profile" [toggleable]="true">
-    <p>Name: {{character[0].name ?? "Missing"}}</p>
-    <p>Real Name: {{character[0].real_name ?? "Missing"}}</p>
-    <p>Gender: {{character[0].gender ?? "Missing"}}</p>
-    <p>Birth: {{character[0].birth ?? "Missing"}}</p>
-    <p>Origin: {{character[0].origin.name ?? "Missing"}}</p>
-    <p>Deck: {{character[0].deck ?? "Missing"}}</p>
-</p-fieldset>
-<p-fieldset legend="Description" [toggleable]="true">
-    <p>{{character.description ?? "Missing"}}</p>
-</p-fieldset>
-<p-fieldset legend="Appearances" [toggleable]="true">
-    <p>Publisher: {{character[0].publisher.name ?? "Missing"}}</p>
-    <p>First appearance in: {{character[0].first_appeared_in_issue.name ?? "Missing"}}</p>
-    <p>issue number: {{character[0].first_appeared_in_issue.issue_number ?? "Missing"}}</p>
-</p-fieldset>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Profile" [toggleable]="true">
+            <div class="flex">
+                <p class="col-3 font-bold">Name</p> 
+                <p class="col-8 font-light">{{character[0]?.name ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-3 font-bold">Real Name</p> 
+                <p class="col-8 font-light">{{character[0]?.real_name ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-3 font-bold">Gender</p> 
+                <p class="col-8 font-light">{{character[0]?.gender ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-3 font-bold">Birth</p> 
+                <p class="col-8 font-light">{{character[0]?.birth ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-3 font-bold">Origin</p> 
+                <p class="col-8 font-light">{{character[0]?.origin ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-3 font-bold">Deck</p> 
+                <p class="col-8 font-light">{{character[0]?.deck ?? "Missing"}}</p>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="Appearances" [toggleable]="true" styleClass="matchbox">
+            <div class="flex">
+                <p class="col-4 font-bold">Publisher</p> 
+                <p class="col-8 font-light">{{character[0]?.publisher?.name ?? "Missing"}}</p>
+            </div>
+            <div class="flex">
+                <p class="col-4 font-bold">First appearance in</p> 
+                <p class="col-8 font-light">{{character[0]?.first_appeared_in_issue?.name}}, #{{character[0]?.first_appeared_in_issue?.issue_number ?? "Missing"}}</p>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="col-12">
+        <p-fieldset legend="Description" [toggleable]="true">
+            <div class="font-light" [innerHTML]="character[0]?.description ?? 'Missing'"></div>
+        </p-fieldset>
+    </div>
+</div>

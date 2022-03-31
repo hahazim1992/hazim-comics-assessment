@@ -12,6 +12,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import { FormsModule } from '@angular/forms';
 import {FieldsetModule} from 'primeng/fieldset';
 import {ImageModule} from 'primeng/image';
+import {CardModule} from 'primeng/card';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -40,7 +41,8 @@ import { DetailComponent } from './detail/detail.component';
     AutoCompleteModule,
     FormsModule,
     FieldsetModule,
-    ImageModule
+    ImageModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

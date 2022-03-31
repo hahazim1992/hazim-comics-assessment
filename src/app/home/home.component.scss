@@ -1,4 +1,6 @@
 :host ::ng-deep {
+    --main-color: #557B83;
+
     .p-dropdown {
         width: 14rem;
         font-weight: normal;
@@ -18,15 +20,6 @@
         margin: 0 0 1rem 0;
         overflow: hidden;
         height: 5.75rem;
-        //border: 1px solid #000000;
-
-        //display: -webkit-box;
-        //-webkit-line-clamp: 3;
-        //-webkit-box-orient: vertical;
-        //border: 1px solid #000000
-
-        //position: relative;
-        //height: 3.6em;
     }
     
     .product-category-icon {
@@ -111,6 +104,15 @@
             //text-overflow: hidden;
         }
     }
+
+    .p-inputgroup .p-inputtext, .p-fluid .p-inputgroup .p-inputtext, .p-inputgroup .p-inputwrapper, .p-inputgroup .p-inputwrapper>.p-component {
+        width: 100%;
+    }
+
+    .p-button {
+            background: var(--main-color);
+            border: 1px solid var(--main-color);
+    }
 }
 
 .card {
@@ -119,37 +121,4 @@
     border-radius: 4px;
     margin-bottom: 2rem;
     //max-height: 30rem;
-}
-
-@media screen and (max-width: 576px) {
-	:host ::ng-deep .product-list-item {
-		flex-direction: column;
-		align-items: center;
-
-		img {
-			width: 75%;
-			margin: 2rem 0;
-		}
-
-		.product-list-detail {
-			text-align: center;
-		}
-
-		.product-price {
-			align-self: center;
-		}
-
-		.product-list-action {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.product-list-action {
-			margin-top: 2rem;
-			flex-direction: row;
-			justify-content: space-between;
-			align-items: center;
-			width: 100%;
-		}
-	}
 }
